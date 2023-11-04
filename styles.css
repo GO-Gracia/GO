@@ -1,0 +1,411 @@
+@import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display&display=swap");
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  background-color: rgb(0, 0, 0);
+  letter-spacing: 0.2em;
+  margin: 0;
+  font-family: "Bebas Neue", sans-serif;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+a {
+  text-decoration: none;
+}
+
+#video-container {
+  position: absolute;
+  width: 100%;
+  min-height: 100vh;
+  z-index: -4;
+}
+
+video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  top: 0;
+  left: 0;
+}
+
+#play-button {
+  margin: 70vh 0 0 18vw;
+  padding: 13px 25px 13px 25px;
+  border: 3px solid;
+  border-radius: 25px;
+  color: white;
+  background-color: black;
+}
+
+#play-button:hover {
+  background-color: rgba(139, 252, 129, 0.541);
+}
+
+#play-button,
+nav button {
+  cursor: pointer;
+  font-size: 0.921rem;
+  letter-spacing: 0.2rem;
+}
+
+#text-section {
+  position: absolute;
+  color: aliceblue;
+  z-index: 3;
+  width: 100vw;
+  height: 100vh;
+}
+
+#text-section h1 {
+  padding: 2% 0 0 2%;
+  font-size: 1.7em;
+}
+
+#text-section ul {
+  position: relative;
+  padding: 14% 0 0 0;
+}
+
+#text-section ul li {
+  list-style: none;
+  width: 100%;
+  transition: 14s;
+  font-size: 2em;
+}
+
+#text-section ul li:nth-child(2),
+li:nth-child(3) {
+  margin-top: 20%;
+}
+
+#my-details {
+  position: absolute;
+  top: 11%;
+  width: 30vw;
+  height: 30vh;
+  padding-left: 10%;
+}
+
+#typewriter {
+  position: absolute;
+  top: 88.5vh;
+  left: 18vw;
+  width: 17em;
+  color: rgb(138, 250, 144);
+}
+
+.display {
+  display: block;
+}
+
+.display-none {
+  display: none;
+}
+
+.move {
+  animation: move 3s linear 1;
+}
+
+.move2 {
+  animation: move2 3s linear 1;
+}
+
+.move3 {
+  animation: move3 3s linear 1;
+}
+
+@keyframes move3 {
+  0% {
+    margin-left: 0;
+    opacity: 1;
+    display: block;
+  }
+  35% {
+    margin-left: 0;
+    opacity: 1;
+    display: block;
+  }
+  92% {
+    margin-left: -110;
+    opacity: 0;
+    display: block;
+  }
+  100% {
+    margin-left: -110%;
+    opacity: 0;
+    display: none;
+  }
+}
+@keyframes move2 {
+  0% {
+    margin-left: 0;
+    opacity: 1;
+    display: block;
+  }
+  80% {
+    margin-left: 0;
+    opacity: 1;
+    display: block;
+  }
+  100% {
+    margin-left: -110%;
+    opacity: 0;
+    display: none;
+  }
+}
+@keyframes move {
+  0% {
+    margin-left: 0;
+    opacity: 1;
+    display: block;
+  }
+  10% {
+    margin-left: 0;
+    opacity: 1;
+    display: block;
+  }
+  100% {
+    margin-left: -110%;
+    opacity: 0;
+    display: none;
+  }
+}
+.reveal {
+  animation: reveal 8.6s linear 1;
+}
+
+@keyframes reveal {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+nav button {
+  background-color: black;
+  color: white;
+  border: none;
+  font-weight: 900;
+  border-radius: 43px;
+  z-index: 3;
+}
+
+nav button:hover {
+  color: rgb(253, 229, 95);
+}
+
+.det-cred-container {
+  width: 40vw;
+  height: 70vh;
+  margin-top: 9vh;
+  margin-left: 5vw;
+}
+
+#exp-projects-container {
+  margin-top: -3.5%;
+  padding: 7%;
+  height: 55%;
+}
+
+#exp-projects-container p {
+  font-family: "Playfair Display", serif;
+  font-size: 0.92em;
+  font-weight: bold;
+  letter-spacing: 0.4%;
+  margin-top: 0.3%;
+  color: rgb(247, 253, 245);
+  border: none;
+  padding: 2%;
+  border-radius: 14px;
+}
+
+#exp-projects-container br {
+  display: block;
+  content: "";
+  margin-top: 0.4rem;
+}
+
+#plant-container {
+  position: absolute;
+  width: 50vw;
+  height: 90vh;
+  top: 0;
+  left: 46vw;
+  display: flex;
+  flex-direction: column;
+  font-family: "Russo One", sans-serif;
+}
+
+.plant-inner {
+  position: relative;
+  height: 12em;
+}
+
+.no-opacity {
+  opacity: 0;
+}
+
+.showSkills {
+  animation: skillsShow 3s linear 1;
+}
+
+@keyframes skillsShow {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.plant-inner ul {
+  position: absolute;
+  width: 10%;
+  font-size: 0.3em;
+}
+
+#virtues div {
+  position: absolute;
+  margin: 34% 0 0 15%;
+}
+
+#virtues ul {
+  top: 74%;
+  left: 61%;
+}
+
+#plant-container ul li {
+  padding: 3%;
+}
+
+#design ul {
+  top: 65%;
+  left: 15%;
+}
+
+#plant-container span {
+  color: gold;
+}
+
+#hoverDiv {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0%;
+  z-index: 15;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  padding: 1% 0 1% 75%;
+  z-index: 14;
+}
+
+footer:hover .email {
+  color: white;
+}
+
+.email {
+  transition: 0.6s;
+  color: rgba(128, 128, 128, 0.2);
+}
+
+article {
+  overflow: hidden;
+}
+
+@media screen and (max-width: 1200px) and (max-height: 768px) {
+  #exp-projects-container p {
+    font-family: "Playfair Display", serif;
+    font-size: 0.82em;
+    font-weight: bold;
+    letter-spacing: 0.4%;
+    margin-top: 0.3%;
+    color: white;
+    border: none;
+    padding: 2%;
+    border-radius: 14px;
+  }
+}
+@media screen and (max-width: 850px) {
+  #video-container {
+    display: none;
+  }
+  #plant-container {
+    display: none;
+  }
+  #text-section h1 {
+    padding: 4%;
+  }
+  #text-section ul li {
+    list-style: none;
+    width: 100%;
+    transition: 14s;
+    font-size: 1.2em;
+    padding-top: 20px;
+  }
+  nav button {
+    padding-left: 33px;
+  }
+  footer {
+    position: absolute;
+    bottom: 0;
+    padding: 1% 0 1% 5%;
+    z-index: 14;
+  }
+  #exp-projects-container {
+    margin-top: -0.8%;
+    padding: 5%;
+    width: 80vw;
+    height: 55%;
+  }
+  #exp-projects-container p {
+    font-size: 0.61;
+  }
+  #play-button {
+    margin: 60vh 0 0 18vw;
+  }
+  #trane-exp {
+    overflow: scroll;
+  }
+  #typewriter {
+    top: 72.5vh;
+  }
+}
+@media screen and (max-height: 589px) {
+  #trane-exp {
+    overflow-y: scroll;
+    max-height: 300px;
+  }
+  #typewriter {
+    position: absolute;
+    top: 92vh;
+    left: 34vw;
+    width: 17em;
+    color: rgb(138, 250, 144);
+  }
+}/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/styles.css">
+    <title>GOPORTFOLIO</title>
+</head>
+<body>
+    <section id="video-container">
+        <video id="myVideo" src="video/0001-0550.mp4"></video>
+    </section>
+
+    <section id="text-section">
+        <h1>GRACIA OREMA</h1>
+        <div id="my-details" class="det-cred-container">
+            <ul id="description-container">
+                <li id="description1" class="display">
+                    <h2>TECH</h2>
+                </li>
+                <li id="description2" class="display" style="color: rgba(28, 172, 35, 0.801);">
+                    <h2>ENVIROMENTALIST</h2>
+                </li>
+                <li id="description3" class="display">
+                    <h2>ARTIST</h2>
+                </li>
+            </ul>
+        </div>
+
+        <div id="credentials" class="det-cred-container display-none">
+            <nav id="nav" class="display-none">
+                <button onclick="showExp()">
+                    EXP
+                </button>
+                <button onclick="showProjects()">
+                    PROJECTS
+                </button>
+            </nav>
+
+            <div id="exp-projects-container">
+                <article id="trane-exp" class="display-none">
+                    <h3 style="color:rgb(113, 14, 206); font-size: 1.3rem">Trane Technologies</h3>
+                    <p>Opex Tech- <br> Document processes within company regarding production.<br>
+                        Engage in events geared toward innovation.
+                    </p>
+                    <p>Uitility XX- <br> Design structures that increase production while retaining or improving safety
+                        measures.<br>
+                        Bring designs to fruition using a variety of tools and parts at discretion.
+                    </p>
+                    <p>Maintenance Apprentice- <br> Assist in repair and routine maintenance of machinery.
+                        (Electrical/Mechanical) <br>
+                    </p>
+                </article>
+                <ul id="project-list" class="display-none">
+                    <li>
+                         <a href="video/0001-0450.mp4" target="_blank"><h3>Box Water Fan Ad</h3></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="typewriter">
+        </div>
+
+        <button id="play-button" onclick="startProcess()">ABOUT</button>
+
+        <div id="plant-container">
+            <div id="virtues" class="plant-inner no-opacity">
+                <div id="soft-skills-text">
+                    <h4>SOFT SKILLS</h4>
+                </div>
+                <ul>
+                    <li>ORGANIZATION</li>
+                    <li><span>VERSATILITY</span></li>
+                    <li>PROJECT FULLFILLMENT</li>
+                </ul>
+            </div>
+            <div id="design" class="plant-inner no-opacity
+">
+                <ul>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li><span>JAVA&nbspSCRIPT</span></li>
+                    <li>BLENDER&nbsp3D</li>
+                </ul>
+            </div>
+            <div id="hoverDiv" class="display-none"></div>
+        </div>
+    </section>
+
+    <footer><p class="email">goprodfinal@gmail.com</p></footer>
+    <script>
+
+        var textArea = document.getElementById('text-section');
+        var plantArea = document.getElementById('plant-container');
+        var tech = document.getElementById('description1');
+        var enviro = document.getElementById('description2');
+        var artist = document.getElementById('description3');
+
+        textArea.addEventListener('mouseover', () => {
+            plantArea.classList.add('display-none');
+        });
+
+        function startProcess() {
+
+            typewriter();
+            //move description
+            tech.classList.remove('display');
+            tech.classList.add('move3');
+            tech.classList.add('display-none');
+
+            enviro.classList.remove('display');
+            enviro.classList.add('move2');
+            enviro.classList.add('display-none');
+
+            artist.classList.remove('display');
+            artist.classList.add('move');
+            artist.classList.add('display-none');
+
+            // reavel show cred
+
+            var cred = document.getElementById('credentials');
+            var nav = document.getElementById('nav');
+
+            cred.classList.remove('display-none');
+            nav.classList.remove('display-none');
+            nav.classList.add('reveal');
+
+            hoverDiv.classList.remove('display-none');
+            
+            // play video
+            playVideo();
+
+            var playButton = document.getElementById('play-button');
+
+            playButton.classList.add('display-none');
+        }
+
+        var traneExp = document.getElementById('trane-exp');
+        var projects = document.getElementById('project-list');
+
+        function showExp() {
+            traneExp.classList.remove('display-none');
+            projects.classList.add('display-none');
+        }
+
+        function showProjects() {
+            projects.classList.remove('display-none');
+            traneExp.classList.add('display-none');
+        };
+
+        // video play funtion
+
+        function playVideo() {
+            var video = document.getElementById("myVideo");
+            var pauseAtTime = 12;
+
+            video.play();
+
+            video.addEventListener("timeupdate", function () {
+                if (video.currentTime >= pauseAtTime) {
+                    video.pause();
+                }
+            });
+        }
+
+        // plant hover text
+
+
+        let hoverDiv = document.getElementById("hoverDiv");
+        var virtues = document.getElementById('virtues');
+        var design = document.getElementById('design');
+
+        hoverDiv.addEventListener('mouseover', () => {
+            virtues.classList.remove('no-opacity');
+            virtues.classList.add('showSkills');
+
+            design.classList.remove('no-opacity');
+            design.classList.add('showSkills');
+        });
+
+        // typewriter text
+
+        var text = "LETS WORK TOGETHER";
+        var isTyping = false;
+        var typewriterDiv = document.getElementById("typewriter");
+
+
+        function typewriter() {
+            if (!isTyping) {
+                isTyping = true;
+                typewriterDiv.innerHTML = '';
+                type(0);
+            }
+        }
+
+
+        function type(index) {
+            if (index < text.length) {
+                typewriterDiv.innerHTML += text.charAt(index);
+                index++;
+                setTimeout(function () {
+                    type(index);
+                }, 85);
+            } else {
+                isTyping = false;
+            }
+        }
+
+        // soft skills erase
+
+        var expProjArea = document.getElementById('exp-projects-container');
+
+        expProjArea.addEventListener('mouseover', () => {
+            virtues.classList.add('no-opacity');
+            virtues.classList.remove('showSkills');
+
+            design.classList.add('no-opacity');
+            design.classList.remove('showSkills');
+        });
+
+    </script>
+</body>
+</html>

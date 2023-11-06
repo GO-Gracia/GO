@@ -377,6 +377,10 @@ article{
     overflow: hidden;
 }
 
+ #pc-only-message {
+  display: none;
+}
+
 /* media query 1200w - 768h */
 
 @media screen and (max-width: 1200px) and (max-height: 768px){
@@ -394,87 +398,25 @@ article{
       }
 }
 
-/* media query 850w */
-
-@media screen and (max-width: 850px) {
-
-    #video-container{
+@media (max-width: 768px) {
+    #video-container, #text-section, #credentials{
         display: none;
     }
 
-    #video{
-        display: none;
-    }
-
-    #plant-container{
-        display: none;
-    }
-
-    #text-section h1{
-        padding: 4%;
-    }
-
-    #text-section ul li {
-        list-style: none;
-        width: 100%;
-        transition: 14s;
-        font-size: 1.2em;
-        padding-top: 20px;
-    }
-
-    nav button{
-        padding-left: 33px;
-    }
-
-    footer{
-        position: absolute;
-        bottom: 0;
-        padding: 1% 0 1% 5%;
-        z-index: 14;
-    }
-
-    #exp-projects-container {
-        margin-top: -.8%;
-        padding: 5%;
-        width: 80vw;
-        height: 55%;
-    }
-
-    #exp-projects-container p{
-        font-size: .61;
-    }
-
-    #play-button {
-        margin: 60vh 0 0 18vw;
-    }
-
-    #trane-exp{
-        overflow: scroll;
-    }
-
-    #typewriter{
-        top: 72.5vh;
-    }
+  #pc-only-message {
+    display: block;
+    text-align: center;
+    background-color: #36f4f4; 
+    color: #160c0c; 
+    width: 11em;
+    height: 23%;
+    margin: 25%;
+    padding: 2em;
+  }
 }
 
-/* media query 589h */
 
-@media screen and (max-height: 589px){
-
-    #trane-exp{
-        overflow-y: scroll;
-        max-height: 300px;
-    }
-
-      #typewriter {
-        position: absolute;
-        top: 92vh;
-        left: 34vw;
-        width: 17em;
-        color: rgb(138, 250, 144);
-    }
-}
-    </style>
+  </style>
     
     <section id="video-container">
         <video id="myVideo" src="0001-0550.mp4"></video>
@@ -558,6 +500,7 @@ article{
     </section>
 
     <footer><p class="email">goprodfinal@gmail.com</p></footer>
+    <div id="pc-only-message">USE OC OR WIDER SCREEN FOR FULL SITE</div>
     <script>
 
         var textArea = document.getElementById('text-section');

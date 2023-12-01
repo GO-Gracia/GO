@@ -6,423 +6,516 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GOPORTFOLIO</title>
 </head>
+
 <body>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display&display=swap');
+
+        *,
+        *::before,
+        *::after {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            position: relative;
+            background-color: rgb(0, 0, 0);
+            letter-spacing: .2em;
+            margin: 0;
+            font-family: 'Bebas Neue', sans-serif;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* video area and play button */
+
+        #video-container {
+            position: absolute;
+            width: 100%;
+            min-height: 100vh;
+            z-index: -4;
+        }
+
+        video {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            top: 0;
+            left: 0;
+        }
+
+        #play-button {
+            margin: 7.5vh 0 0 8vw;
+            padding: 13px 25px 13px 25px;
+            border: 3px solid;
+            border-radius: 25px;
+            color: white;
+            background-color: black;
+        }
+
+        #play-button:hover {
+            background-color: rgba(139, 252, 129, 0.541);
+        }
+
+        #play-button,
+        nav button {
+            cursor: pointer;
+            font-size: .921rem;
+            letter-spacing: .2rem;
+        }
+
+        a {
+            cursor: pointer;
+            padding-top: 5px;
+        }
+
+        a:hover {
+            font-size: 2.7rem;
+        }
+
+        /* TEXT */
+
+        #text-section {
+            position: absolute;
+            color: aliceblue;
+            z-index: 3;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        #text-section h1 {
+            padding: 2% 0 0 2%;
+            font-size: 1.7em;
+        }
+
+        #text-section ul {
+            position: relative;
+            padding: 14% 0 0 0;
+        }
+
+        #text-section ul li {
+            list-style: none;
+            width: 100%;
+            transition: 14s;
+            font-size: 2em;
+        }
+
+        #text-section ul li:nth-child(2),
+        li:nth-child(3) {
+            margin-top: 20%;
+        }
+
+        #my-details {
+            position: absolute;
+            top: 11%;
+            width: 30vw;
+            height: 30vh;
+            padding-left: 10%;
+        }
+
+        #typewriter {
+            position: absolute;
+            top: 92.5vh;
+            left: 18vw;
+            width: 17em;
+            color: rgb(138, 250, 144);
+        }
+
+        .display {
+            display: block;
+        }
+
+        .display-none {
+            display: none;
+        }
+
+        .move {
+            animation: move 3s linear 1;
+        }
+
+        .move2 {
+            animation: move2 3s linear 1;
+        }
+
+        .move3 {
+            animation: move3 3s linear 1;
+        }
+
+        @keyframes move3 {
+            0% {
+                margin-left: 0;
+                opacity: 1;
+                display: block;
+            }
+
+            35% {
+                margin-left: 0;
+                opacity: 1;
+                display: block;
+            }
+
+            92% {
+                margin-left: -110;
+                opacity: 0;
+                display: block;
+            }
+
+            100% {
+                margin-left: -110%;
+                opacity: 0;
+                display: none;
+            }
+        }
+
+        @keyframes move2 {
+            0% {
+                margin-left: 0;
+                opacity: 1;
+                display: block;
+            }
+
+            80% {
+                margin-left: 0;
+                opacity: 1;
+                display: block;
+            }
+
+            100% {
+                margin-left: -110%;
+                opacity: 0;
+                display: none;
+            }
+        }
+
+        @keyframes move {
+            0% {
+                margin-left: 0;
+                opacity: 1;
+                display: block;
+            }
+
+            10% {
+                margin-left: 0;
+                opacity: 1;
+                display: block;
+            }
+
+            100% {
+                margin-left: -110%;
+                opacity: 0;
+                display: none;
+            }
+        }
+
+        .reveal {
+            animation: reveal 8.6s linear 1;
+        }
+
+        @keyframes reveal {
+            0% {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* second display */
+
+        nav {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+
+        nav button {
+            background-color: black;
+            color: white;
+            border: none;
+            font-weight: 900;
+            border-radius: 43px;
+            z-index: 3;
+        }
+
+        nav button:hover {
+            color: rgb(253, 229, 95);
+        }
+
+        .det-cred-container {
+            width: 40vw;
+            height: 70vh;
+            margin-top: 9vh;
+            margin-left: 5vw;
+        }
+
+        #exp-projects-container {
+            margin-top: -3.5%;
+            padding: 7%;
+            height: 55%;
+        }
+
+        #exp-projects-container p {
+            font-family: 'Playfair Display', serif;
+            font-size: .92em;
+            font-weight: bold;
+            letter-spacing: .4%;
+            margin-top: .3%;
+            color: rgb(247, 253, 245);
+            border: none;
+            padding: 2%;
+            border-radius: 14px;
+        }
+
+        #exp-projects-container br {
+            display: block;
+            content: "";
+            margin-top: .4rem;
+        }
+
+        /* Illustrations */
+
+        #carousel-container {
+            position: absolute;
+            width: 65vw;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 8;
+            margin: auto;
+            display: none;
+            overflow: hidden;
+        }
+
+        #image-carousel {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-image {
+            width: 100%;
+            flex: 0 0 auto;
+            object-fit: cover;
+        }
+
+        #prevBtn,
+        #nextBtn {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            background-color: #06b0ce9f;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            z-index: 3;
+        }
+
+        #prevBtn {
+            left: 10px;
+        }
+
+        #nextBtn {
+            right: 10px;
+        }
+
+        .exit-button {
+            position: absolute;
+            top: 10px;
+            right: 13px;
+            padding: 10px;
+            cursor: pointer;
+            background-color: #dfe4e7af;
+            color: #2a71a0de;
+            border: none;
+            font-size: 18px;
+        }
+
+        .exit-button:hover {
+            color: #515658;
+        }
+
+        .exit-icon::before {
+            content: '×';
+            font-weight: bold;
+            font-size: 24px;
+        }
+
+        /* soft skills area */
+
+        #plant-container {
+            position: absolute;
+            width: 50vw;
+            height: 90vh;
+            top: 0;
+            left: 46vw;
+            display: flex;
+            flex-direction: column;
+            font-family: 'Russo One', sans-serif;
+        }
+
+        .plant-inner {
+            position: relative;
+            height: 12em;
+        }
+
+        .no-opacity {
+            opacity: 0;
+        }
+
+        .showSkills {
+            animation: skillsShow 3s linear 1;
+        }
+
+        @keyframes skillsShow {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .plant-inner ul {
+            position: absolute;
+            width: 10%;
+            font-size: .3em;
+        }
+
+        #virtues div {
+            position: absolute;
+            margin: 34% 0 0 15%;
+        }
+
+        #virtues ul {
+            top: 74%;
+            left: 61%;
+        }
+
+        #plant-container ul li {
+            padding: 3%;
+        }
+
+        #design ul {
+            top: 65%;
+            left: 15%;
+        }
+
+        #plant-container span {
+            color: gold;
+        }
+
+
+        #hoverDiv {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0%;
+            z-index: 6;
+        }
+
+        footer {
+            position: absolute;
+            bottom: 0;
+            padding: 1% 0 1% 75%;
+            z-index: 9;
+        }
+
+        footer:hover {
+            .email {
+                color: white;
+            }
+        }
+
+        .email {
+            transition: .6s;
+            color: rgba(128, 128, 128, 0.2);
+        }
+
+        article {
+            overflow: hidden;
+        }
+
+        #pc-only-message {
+            display: none;
+        }
+
+        /* media query 1200w - 768h */
+
+        @media screen and (max-width: 1200px) and (max-height: 768px) {
+
+            #exp-projects-container p {
+                font-family: 'Playfair Display', serif;
+                font-size: 0.82em;
+                font-weight: bold;
+                letter-spacing: 0.4%;
+                margin-top: 0.3%;
+                color: white;
+                border: none;
+                padding: 2%;
+                border-radius: 14px;
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            #video-container,
+            #text-section,
+            #credentials {
+                display: none;
+            }
+
+            #pc-only-message {
+                display: block;
+                text-align: center;
+                background-color: #36f4f4;
+                color: #160c0c;
+                width: 11em;
+                height: 23%;
+                margin: 25%;
+                padding: 2em;
+            }
+        }
+    </style>
 
-@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
-
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
-
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display&display=swap');
-
-*,
-*::before,
-*::after {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-
-body {
-    position: relative;
-    background-color: rgb(0, 0, 0);
-    letter-spacing: .2em;
-    margin: 0;
-    font-family: 'Bebas Neue', sans-serif;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-}
-
-a {
-    text-decoration: none;
-}
-
-/* video area and play button */
-
-#video-container {
-    position: absolute;
-    width: 100%;
-    min-height: 100vh;
-    z-index: -4;
-}
-
-video {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    top: 0;
-    left: 0;
-}
-
-#play-button {
-    margin: 70vh 0 0 18vw;
-    padding: 13px 25px 13px 25px;
-    border: 3px solid;
-    border-radius: 25px;
-    color: white;
-    background-color: black;
-}
-
-#play-button:hover {
-    background-color: rgba(139, 252, 129, 0.541);
-}
-
-#play-button,
-nav button {
-    cursor: pointer;
-    font-size: .921rem;
-    letter-spacing: .2rem;
-}
-
-/* TEXT */
-
-#text-section {
-    position: absolute;
-    color: aliceblue;
-    z-index: 3;
-    width: 100vw;
-    height: 100vh;
-}
-
-#text-section h1 {
-    padding: 2% 0 0 2%;
-    font-size: 1.7em;
-}
-
-#text-section ul {
-    position: relative;
-    padding: 14% 0 0 0;
-}
-
-#text-section ul li {
-    list-style: none;
-    width: 100%;
-    transition: 14s;
-    font-size: 2em;
-}
-
-#text-section ul li:nth-child(2),
-li:nth-child(3) {
-    margin-top: 20%;
-}
-
-#my-details {
-    position: absolute;
-    top: 11%;
-    width: 30vw;
-    height: 30vh;
-    padding-left: 10%;
-}
-
-#typewriter {
-    position: absolute;
-    top: 88.5vh;
-    left: 18vw;
-    width: 17em;
-    color: rgb(138, 250, 144);
-}
-
-.display {
-    display: block;
-}
-
-.display-none {
-    display: none;
-}
-
-.move {
-    animation: move 3s linear 1;
-}
-
-.move2 {
-    animation: move2 3s linear 1;
-}
-
-.move3 {
-    animation: move3 3s linear 1;
-}
-
-@keyframes move3 {
-    0% {
-        margin-left: 0;
-        opacity: 1;
-        display: block;
-    }
-
-    35% {
-        margin-left: 0;
-        opacity: 1;
-        display: block;
-    }
-
-    92% {
-        margin-left: -110;
-        opacity: 0;
-        display: block;
-    }
-
-    100% {
-        margin-left: -110%;
-        opacity: 0;
-        display: none;
-    }
-}
-
-@keyframes move2 {
-    0% {
-        margin-left: 0;
-        opacity: 1;
-        display: block;
-    }
-
-    80% {
-        margin-left: 0;
-        opacity: 1;
-        display: block;
-    }
-
-    100% {
-        margin-left: -110%;
-        opacity: 0;
-        display: none;
-    }
-}
-
-@keyframes move {
-    0% {
-        margin-left: 0;
-        opacity: 1;
-        display: block;
-    }
-
-    10% {
-        margin-left: 0;
-        opacity: 1;
-        display: block;
-    }
-
-    100% {
-        margin-left: -110%;
-        opacity: 0;
-        display: none;
-    }
-}
-
-.reveal {
-    animation: reveal 8.6s linear 1;
-}
-
-@keyframes reveal {
-    0% {
-        opacity: 0;
-    }
-
-    50% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
-    }
-}
-
-/* second display */
-
-nav {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-
-nav button {
-    background-color: black;
-    color: white;
-    border: none;
-    font-weight: 900;
-    border-radius: 43px;
-    z-index: 3;
-}
-
-nav button:hover {
-    color: rgb(253, 229, 95);
-}
-
-.det-cred-container {
-    width: 40vw;
-    height: 70vh;
-    margin-top: 9vh;
-    margin-left: 5vw;
-}
-
-#exp-projects-container {
-    margin-top: -3.5%;
-    padding: 7%;
-    height: 55%;
-}
-
-#exp-projects-container p {
-    font-family: 'Playfair Display', serif;
-    font-size: .92em;
-    font-weight: bold;
-    letter-spacing: .4%;
-    margin-top: .3%;
-    color: rgb(247, 253, 245);
-    border: none;
-    padding: 2%;
-    border-radius: 14px;
-}
-
-#exp-projects-container br {
-    display: block;
-    content: "";
-    margin-top: .4rem;
-}
-
-/* soft skills area */
-
-#plant-container {
-    position: absolute;
-    width: 50vw;
-    height: 90vh;
-    top: 0;
-    left: 46vw;
-    display: flex;
-    flex-direction: column;
-    font-family: 'Russo One', sans-serif;
-}
-
-.plant-inner {
-    position: relative;
-    height: 12em;
-}
-
-.no-opacity {
-    opacity: 0;
-}
-
-.showSkills {
-    animation: skillsShow 3s linear 1;
-}
-
-@keyframes skillsShow {
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
-    }
-}
-
-.plant-inner ul {
-    position: absolute;
-    width: 10%;
-    font-size: .3em;
-}
-
-#virtues div {
-    position: absolute;
-    margin: 34% 0 0 15%;
-}
-
-#virtues ul {
-    top: 74%;
-    left: 61%;
-}
-
-#plant-container ul li {
-    padding: 3%;
-}
-
-#design ul {
-    top: 65%;
-    left: 15%;
-}
-
-#plant-container span {
-    color: gold;
-}
-
-
-#hoverDiv {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0%;
-    z-index: 15;
-}
-
-footer{
-    position: absolute;
-    bottom: 0;
-    padding: 1% 0 1% 75%;
-    z-index: 14;
-}
-
-footer:hover{
-    .email{
-        color: white;
-    }
-}
-
-.email{
-    transition: .6s;
-    color: rgba(128, 128, 128, 0.2);
-}
-
-article{
-    overflow: hidden;
-}
-
- #pc-only-message {
-  display: none;
-}
-
-/* media query 1200w - 768h */
-
-@media screen and (max-width: 1200px) and (max-height: 768px){
-
-    #exp-projects-container p {
-        font-family: 'Playfair Display', serif;
-        font-size: 0.82em;
-        font-weight: bold;
-        letter-spacing: 0.4%;
-        margin-top: 0.3%;
-        color: white;
-        border: none;
-        padding: 2%;
-        border-radius: 14px;
-      }
-}
-
-@media (max-width: 768px) {
-    #video-container, #text-section, #credentials{
-        display: none;
-    }
-
-  #pc-only-message {
-    display: block;
-    text-align: center;
-    background-color: #36f4f4; 
-    color: #160c0c; 
-    width: 11em;
-    height: 23%;
-    margin: 25%;
-    padding: 2em;
-  }
-}
-
-
-  </style>
-    
     <section id="video-container">
         <video id="myVideo" src="0001-0550.mp4"></video>
     </section>
 
     <section id="text-section">
+        <!-- Illustrations -->
+        <div id="carousel-container">
+            <button id="prevBtn" onclick="prevSlide()">&#10094;</button>
+            <div id="image-carousel">
+                <img class="carousel-image" src="notmilk.jpeg" alt="Image 1">
+                <img class="carousel-image" src="repaper.jpeg" alt="Image 2">
+            </div>
+            <button class="exit-button" onclick="imagesGone()">
+                <span class="exit-icon"></span>
+            </button>
+            <button id="nextBtn" onclick="nextSlide()">&#10095;</button>
+        </div>
+
         <h1>GRACIA OREMA</h1>
         <div id="my-details" class="det-cred-container">
             <ul id="description-container">
@@ -436,6 +529,7 @@ article{
                     <h2>ARTIST</h2>
                 </li>
             </ul>
+            <button id="play-button" onclick="startProcess()">ABOUT</button>
         </div>
 
         <div id="credentials" class="det-cred-container display-none">
@@ -467,7 +561,12 @@ article{
                 </article>
                 <ul id="project-list" class="display-none">
                     <li>
-                         <a href="0001-0450.mp4" target="_blank"><h3>Box Water Fan Ad</h3></a>
+                        <a href="0001-0450.mp4" target="_blank">
+                            <h3>Box Water Fan Ad</h3>
+                        </a>
+                        <a onclick="imagesShow()">
+                            <h3>Adobe Illustrations</h3>
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -475,8 +574,6 @@ article{
 
         <div id="typewriter">
         </div>
-
-        <button id="play-button" onclick="startProcess()">ABOUT</button>
 
         <div id="plant-container">
             <div id="virtues" class="plant-inner no-opacity">
@@ -502,7 +599,9 @@ article{
         </div>
     </section>
 
-    <footer><p class="email">goprodfinal@gmail.com</p></footer>
+    <footer>
+        <p class="email">goprodfinal@gmail.com</p>
+    </footer>
     <div id="pc-only-message">USE PC OR WIDER SCREEN FOR FULL SITE</div>
     <script>
 
@@ -542,7 +641,7 @@ article{
             nav.classList.add('reveal');
 
             hoverDiv.classList.remove('display-none');
-            
+
             // play video
             playVideo();
 
@@ -634,6 +733,45 @@ article{
             design.classList.remove('showSkills');
         });
 
+        // ILLUSTRATIONS
+
+        let currentIndex = 0;
+        const totalImages = document.querySelectorAll('.carousel-image').length;
+
+        function showSlide(index) {
+            const carousel = document.getElementById('image-carousel');
+            const slideWidth = document.querySelector('.carousel-image').clientWidth;
+
+            if (index >= totalImages) {
+                currentIndex = 0;
+            } else if (index < 0) {
+                currentIndex = totalImages - 1;
+            } else {
+                currentIndex = index;
+            }
+
+            const transformValue = -currentIndex * slideWidth;
+            carousel.style.transform = `translateX(${transformValue}px)`;
+        }
+
+        function nextSlide() {
+            showSlide(currentIndex + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentIndex - 1);
+        }
+
+        let imageContainer = document.getElementById('carousel-container');
+
+        function imagesShow() {
+            imageContainer.style.display = "block";
+        }
+
+        function imagesGone() {
+            imageContainer.style.display = "none";
+        }
     </script>
 </body>
+
 </html>
